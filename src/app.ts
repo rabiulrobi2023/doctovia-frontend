@@ -2,6 +2,7 @@ import express, { type Application, type Response } from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { config } from "./app/config/envConfig";
+import router from "./app/router";
 
 const app: Application = express();
 
@@ -24,5 +25,7 @@ app.get("/", (_req, res: Response) => {
     },
   });
 });
+
+app.use("/api/v1",router)
 
 export default app;

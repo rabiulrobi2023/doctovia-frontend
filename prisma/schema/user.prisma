@@ -1,0 +1,26 @@
+model User {
+  id   String @id @default(uuid())
+  name String @db.VarChar(50)
+
+  email    String  @db.VarChar(100)
+  password String? @db.VarChar(255)
+
+  googleId     String?      @unique @db.VarChar(100)
+  authProvider AuthProvider @default(CREDENTIAL)
+
+  role   Role
+  status UserStatus
+
+  isEmailVerified    Boolean @default(false)
+  needPasswordChange Boolean @default(true)
+
+  isDeleted Boolean   @default(false)
+  deletedAt DateTime? @db.Timestamptz()
+  createdAt DateTime  @default(now()) @db.Timestamptz()
+  updatedAt DateTime  @updatedAt @db.Timestamptz()
+
+  @@index([role])
+  @@index([status])
+  @@index([isDeleted])
+  @@map("users")
+}

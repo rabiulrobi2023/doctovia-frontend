@@ -14,5 +14,7 @@ const routes: IRoutes[] = [
   },
 ];
 
-routes.forEach((route) => router.use(route.path, route.router));
+routes.forEach(({ path, router }) => {
+  router.use(path, router);
+});
 export default router;

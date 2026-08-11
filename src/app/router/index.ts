@@ -3,18 +3,18 @@ import { AuthRouter } from "../modules/auth/auth.routes";
 
 const router = Router();
 interface IRoutes {
-  path: string;
-  router: ReturnType<typeof Router>;
+	path: string;
+	router: ReturnType<typeof Router>;
 }
 
 const routes: IRoutes[] = [
-  {
-    path: "/auth",
-    router: AuthRouter,
-  },
+	{
+		path: "/auth",
+		router: AuthRouter,
+	},
 ];
 
 routes.forEach(({ path, router }) => {
-  router.use(path, router);
+	router.use(path, router);
 });
 export default router;

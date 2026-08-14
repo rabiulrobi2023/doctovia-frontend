@@ -1,18 +1,19 @@
 enum Role {
+  SUPER_ADMIN
   ADMIN
   DOCTOR
   PATIENT
 }
 
 enum UserStatus {
+  PENDING
   ACTIVE
   INACTIVE
-  SUSPENDED
   BLOCKED
+  SUSPENDED
 }
 
 enum AuthProvider {
   CREDENTIAL
   GOOGLE
 }
-

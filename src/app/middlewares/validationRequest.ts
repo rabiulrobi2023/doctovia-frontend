@@ -3,11 +3,14 @@ import catchAsync from "../utils/catchAsync";
 
 const validationRequest = (zodSchema: AnyZodObject) => {
   return catchAsync(async (req, res, next) => {
-    if (req.body.data) {
-      req.body = req.body(JSON.parse(req.body.dada));
+    if (req.body?.data) {
+      req.body = JSON.parse(req.body.data);
     }
 
-    await zodSchema.parseAsync(req.body);
+    const validateData = await zodSchema.parseAsync(req.body);
+
+    req.body = validateData;
+
     next();
   });
 };

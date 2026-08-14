@@ -1,27 +1,24 @@
 model User {
-  id   String @id @default(uuid())
-  name String @db.VarChar(50)
+  id String @id @default(uuid())
 
-  email    String  @db.VarChar(100)
-  password String? @db.VarChar(255)
+  name            String? @db.VarChar(50)
+  email           String @unique @db.VarChar(100)
+  phone           String? @db.VarChar(20)
+  profilePhotoUrl String?
 
-  googleId     String?      @unique @db.VarChar(100)
-  authProvider AuthProvider @default(CREDENTIAL)
+  role   Role       @default(PATIENT)
+  status UserStatus @default(PENDING)
 
-  role   Role
-  status UserStatus
+  emailVerifiedAt    DateTime? @db.Timestamptz()
+  needPasswordChange Boolean   @default(false)
+  deletedAt          DateTime? @db.Timestamptz()
 
-  isEmailVerified    Boolean @default(false)
-  needPasswordChange Boolean @default(true)
+  createdAt DateTime @default(now()) @db.Timestamptz()
+  updatedAt DateTime @updatedAt @db.Timestamptz()
 
-  isDeleted Boolean   @default(false)
-  deletedAt DateTime? @db.Timestamptz()
-  
-  createdAt DateTime  @default(now()) @db.Timestamptz()
-  updatedAt DateTime  @updatedAt @db.Timestamptz()
+  authAccounts AuthAccount[]
 
   @@index([role])
   @@index([status])
-  @@index([isDeleted])
   @@map("users")
 }

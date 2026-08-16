@@ -1,7 +1,7 @@
-import type { AnyZodObject } from "zod/v3";
+import type z from "zod";
 import catchAsync from "../utils/catchAsync";
 
-const validationRequest = (zodSchema: AnyZodObject) => {
+const validationRequest = (zodSchema: z.ZodObject) => {
   return catchAsync(async (req, res, next) => {
     if (req.body?.data) {
       req.body = JSON.parse(req.body.data);

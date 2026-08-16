@@ -1,7 +1,7 @@
 model User {
   id String @id @default(uuid())
 
-  name            String? @db.VarChar(50)
+  name            String @db.VarChar(50)
   email           String @unique @db.VarChar(100)
   phone           String? @db.VarChar(20)
   profilePhotoUrl String?

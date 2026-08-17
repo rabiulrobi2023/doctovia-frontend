@@ -1,7 +1,6 @@
 import type { JwtPayload } from "jsonwebtoken";
 import type { Role } from "../../../generated/enums";
 
-
 export interface IJwtPayload extends JwtPayload {
 	id: string;
 	name: string;

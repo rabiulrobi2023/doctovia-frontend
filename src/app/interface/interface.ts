@@ -1,12 +1,3 @@
-import type { JwtPayload } from "jsonwebtoken";
-import type { Role } from "../../../generated/enums";
-
-export interface IJwtPayload extends JwtPayload {
-	id: string;
-	name: string;
-	email: string;
-	role: Role;
-}
 
 export interface IPaginationOptions {
 	page: string | number;

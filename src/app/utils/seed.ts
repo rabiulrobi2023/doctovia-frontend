@@ -29,7 +29,7 @@ export const seedSuperAdmin = async () => {
 			email,
 			role: Role.SUPER_ADMIN,
 			needPasswordChange: false,
-			emailVerifiedAt: new Date(),
+			isEmailVerified: true,
 			status: UserStatus.ACTIVE,
 			authAccounts: {
 				create: {

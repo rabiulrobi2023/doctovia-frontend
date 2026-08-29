@@ -1,0 +1,21 @@
+model Patient {
+  id String @id @default(uuid())
+
+  phone           String      @db.VarChar(20)
+  address         String
+  gender          Gender      @default(MALE)
+  profilePhotoUrl String?
+  age             Int
+  weight          Int
+  height          Int?
+  bloodGroup      BloodGroup?
+
+  medicalInfo String?
+  userId      String  @unique
+  user        User    @relation(fields: [userId], references: [id])
+
+  createdAt DateTime @default(now()) @db.Timestamptz()
+  updatedAt DateTime @updatedAt @db.Timestamptz()
+
+  @@map("patients")
+}

@@ -52,6 +52,7 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   AuthAccount: 'AuthAccount',
+  Patient: 'Patient',
   User: 'User'
 } as const
 
@@ -84,17 +85,34 @@ export const AuthAccountScalarFieldEnum = {
 export type AuthAccountScalarFieldEnum = (typeof AuthAccountScalarFieldEnum)[keyof typeof AuthAccountScalarFieldEnum]
 
 
+export const PatientScalarFieldEnum = {
+  id: 'id',
+  phone: 'phone',
+  address: 'address',
+  gender: 'gender',
+  profilePhotoUrl: 'profilePhotoUrl',
+  age: 'age',
+  weight: 'weight',
+  height: 'height',
+  bloodGroup: 'bloodGroup',
+  medicalInfo: 'medicalInfo',
+  userId: 'userId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PatientScalarFieldEnum = (typeof PatientScalarFieldEnum)[keyof typeof PatientScalarFieldEnum]
+
+
 export const UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
-  phone: 'phone',
-  profilePhotoUrl: 'profilePhotoUrl',
   role: 'role',
   status: 'status',
-  emailVerifiedAt: 'emailVerifiedAt',
+  isEmailVerified: 'isEmailVerified',
   needPasswordChange: 'needPasswordChange',
-  deletedAt: 'deletedAt',
+  isDeleted: 'isDeleted',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

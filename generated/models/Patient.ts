@@ -43,7 +43,6 @@ export type PatientMinAggregateOutputType = {
   phone: string | null
   address: string | null
   gender: $Enums.Gender | null
-  profilePhotoUrl: string | null
   age: number | null
   weight: number | null
   height: number | null
@@ -59,7 +58,6 @@ export type PatientMaxAggregateOutputType = {
   phone: string | null
   address: string | null
   gender: $Enums.Gender | null
-  profilePhotoUrl: string | null
   age: number | null
   weight: number | null
   height: number | null
@@ -75,7 +73,6 @@ export type PatientCountAggregateOutputType = {
   phone: number
   address: number
   gender: number
-  profilePhotoUrl: number
   age: number
   weight: number
   height: number
@@ -105,7 +102,6 @@ export type PatientMinAggregateInputType = {
   phone?: true
   address?: true
   gender?: true
-  profilePhotoUrl?: true
   age?: true
   weight?: true
   height?: true
@@ -121,7 +117,6 @@ export type PatientMaxAggregateInputType = {
   phone?: true
   address?: true
   gender?: true
-  profilePhotoUrl?: true
   age?: true
   weight?: true
   height?: true
@@ -137,7 +132,6 @@ export type PatientCountAggregateInputType = {
   phone?: true
   address?: true
   gender?: true
-  profilePhotoUrl?: true
   age?: true
   weight?: true
   height?: true
@@ -240,7 +234,6 @@ export type PatientGroupByOutputType = {
   phone: string
   address: string
   gender: $Enums.Gender
-  profilePhotoUrl: string | null
   age: number
   weight: number
   height: number | null
@@ -279,7 +272,6 @@ export type PatientWhereInput = {
   phone?: Prisma.StringFilter<"Patient"> | string
   address?: Prisma.StringFilter<"Patient"> | string
   gender?: Prisma.EnumGenderFilter<"Patient"> | $Enums.Gender
-  profilePhotoUrl?: Prisma.StringNullableFilter<"Patient"> | string | null
   age?: Prisma.IntFilter<"Patient"> | number
   weight?: Prisma.IntFilter<"Patient"> | number
   height?: Prisma.IntNullableFilter<"Patient"> | number | null
@@ -296,7 +288,6 @@ export type PatientOrderByWithRelationInput = {
   phone?: Prisma.SortOrder
   address?: Prisma.SortOrder
   gender?: Prisma.SortOrder
-  profilePhotoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   age?: Prisma.SortOrder
   weight?: Prisma.SortOrder
   height?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -317,7 +308,6 @@ export type PatientWhereUniqueInput = Prisma.AtLeast<{
   phone?: Prisma.StringFilter<"Patient"> | string
   address?: Prisma.StringFilter<"Patient"> | string
   gender?: Prisma.EnumGenderFilter<"Patient"> | $Enums.Gender
-  profilePhotoUrl?: Prisma.StringNullableFilter<"Patient"> | string | null
   age?: Prisma.IntFilter<"Patient"> | number
   weight?: Prisma.IntFilter<"Patient"> | number
   height?: Prisma.IntNullableFilter<"Patient"> | number | null
@@ -333,7 +323,6 @@ export type PatientOrderByWithAggregationInput = {
   phone?: Prisma.SortOrder
   address?: Prisma.SortOrder
   gender?: Prisma.SortOrder
-  profilePhotoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   age?: Prisma.SortOrder
   weight?: Prisma.SortOrder
   height?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -357,7 +346,6 @@ export type PatientScalarWhereWithAggregatesInput = {
   phone?: Prisma.StringWithAggregatesFilter<"Patient"> | string
   address?: Prisma.StringWithAggregatesFilter<"Patient"> | string
   gender?: Prisma.EnumGenderWithAggregatesFilter<"Patient"> | $Enums.Gender
-  profilePhotoUrl?: Prisma.StringNullableWithAggregatesFilter<"Patient"> | string | null
   age?: Prisma.IntWithAggregatesFilter<"Patient"> | number
   weight?: Prisma.IntWithAggregatesFilter<"Patient"> | number
   height?: Prisma.IntNullableWithAggregatesFilter<"Patient"> | number | null
@@ -373,7 +361,6 @@ export type PatientCreateInput = {
   phone: string
   address: string
   gender?: $Enums.Gender
-  profilePhotoUrl?: string | null
   age: number
   weight: number
   height?: number | null
@@ -389,7 +376,6 @@ export type PatientUncheckedCreateInput = {
   phone: string
   address: string
   gender?: $Enums.Gender
-  profilePhotoUrl?: string | null
   age: number
   weight: number
   height?: number | null
@@ -405,7 +391,6 @@ export type PatientUpdateInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
-  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.IntFieldUpdateOperationsInput | number
   weight?: Prisma.IntFieldUpdateOperationsInput | number
   height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -421,7 +406,6 @@ export type PatientUncheckedUpdateInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
-  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.IntFieldUpdateOperationsInput | number
   weight?: Prisma.IntFieldUpdateOperationsInput | number
   height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -437,7 +421,6 @@ export type PatientCreateManyInput = {
   phone: string
   address: string
   gender?: $Enums.Gender
-  profilePhotoUrl?: string | null
   age: number
   weight: number
   height?: number | null
@@ -453,7 +436,6 @@ export type PatientUpdateManyMutationInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
-  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.IntFieldUpdateOperationsInput | number
   weight?: Prisma.IntFieldUpdateOperationsInput | number
   height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -468,7 +450,6 @@ export type PatientUncheckedUpdateManyInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
-  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.IntFieldUpdateOperationsInput | number
   weight?: Prisma.IntFieldUpdateOperationsInput | number
   height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -484,7 +465,6 @@ export type PatientCountOrderByAggregateInput = {
   phone?: Prisma.SortOrder
   address?: Prisma.SortOrder
   gender?: Prisma.SortOrder
-  profilePhotoUrl?: Prisma.SortOrder
   age?: Prisma.SortOrder
   weight?: Prisma.SortOrder
   height?: Prisma.SortOrder
@@ -506,7 +486,6 @@ export type PatientMaxOrderByAggregateInput = {
   phone?: Prisma.SortOrder
   address?: Prisma.SortOrder
   gender?: Prisma.SortOrder
-  profilePhotoUrl?: Prisma.SortOrder
   age?: Prisma.SortOrder
   weight?: Prisma.SortOrder
   height?: Prisma.SortOrder
@@ -522,7 +501,6 @@ export type PatientMinOrderByAggregateInput = {
   phone?: Prisma.SortOrder
   address?: Prisma.SortOrder
   gender?: Prisma.SortOrder
-  profilePhotoUrl?: Prisma.SortOrder
   age?: Prisma.SortOrder
   weight?: Prisma.SortOrder
   height?: Prisma.SortOrder
@@ -605,7 +583,6 @@ export type PatientCreateWithoutUserInput = {
   phone: string
   address: string
   gender?: $Enums.Gender
-  profilePhotoUrl?: string | null
   age: number
   weight: number
   height?: number | null
@@ -620,7 +597,6 @@ export type PatientUncheckedCreateWithoutUserInput = {
   phone: string
   address: string
   gender?: $Enums.Gender
-  profilePhotoUrl?: string | null
   age: number
   weight: number
   height?: number | null
@@ -651,7 +627,6 @@ export type PatientUpdateWithoutUserInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
-  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.IntFieldUpdateOperationsInput | number
   weight?: Prisma.IntFieldUpdateOperationsInput | number
   height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -666,7 +641,6 @@ export type PatientUncheckedUpdateWithoutUserInput = {
   phone?: Prisma.StringFieldUpdateOperationsInput | string
   address?: Prisma.StringFieldUpdateOperationsInput | string
   gender?: Prisma.EnumGenderFieldUpdateOperationsInput | $Enums.Gender
-  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   age?: Prisma.IntFieldUpdateOperationsInput | number
   weight?: Prisma.IntFieldUpdateOperationsInput | number
   height?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -683,7 +657,6 @@ export type PatientSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   phone?: boolean
   address?: boolean
   gender?: boolean
-  profilePhotoUrl?: boolean
   age?: boolean
   weight?: boolean
   height?: boolean
@@ -700,7 +673,6 @@ export type PatientSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   phone?: boolean
   address?: boolean
   gender?: boolean
-  profilePhotoUrl?: boolean
   age?: boolean
   weight?: boolean
   height?: boolean
@@ -717,7 +689,6 @@ export type PatientSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   phone?: boolean
   address?: boolean
   gender?: boolean
-  profilePhotoUrl?: boolean
   age?: boolean
   weight?: boolean
   height?: boolean
@@ -734,7 +705,6 @@ export type PatientSelectScalar = {
   phone?: boolean
   address?: boolean
   gender?: boolean
-  profilePhotoUrl?: boolean
   age?: boolean
   weight?: boolean
   height?: boolean
@@ -745,7 +715,7 @@ export type PatientSelectScalar = {
   updatedAt?: boolean
 }
 
-export type PatientOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "phone" | "address" | "gender" | "profilePhotoUrl" | "age" | "weight" | "height" | "bloodGroup" | "medicalInfo" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["patient"]>
+export type PatientOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "phone" | "address" | "gender" | "age" | "weight" | "height" | "bloodGroup" | "medicalInfo" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["patient"]>
 export type PatientInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -766,7 +736,6 @@ export type $PatientPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     phone: string
     address: string
     gender: $Enums.Gender
-    profilePhotoUrl: string | null
     age: number
     weight: number
     height: number | null
@@ -1203,7 +1172,6 @@ export interface PatientFieldRefs {
   readonly phone: Prisma.FieldRef<"Patient", 'String'>
   readonly address: Prisma.FieldRef<"Patient", 'String'>
   readonly gender: Prisma.FieldRef<"Patient", 'Gender'>
-  readonly profilePhotoUrl: Prisma.FieldRef<"Patient", 'String'>
   readonly age: Prisma.FieldRef<"Patient", 'Int'>
   readonly weight: Prisma.FieldRef<"Patient", 'Int'>
   readonly height: Prisma.FieldRef<"Patient", 'Int'>

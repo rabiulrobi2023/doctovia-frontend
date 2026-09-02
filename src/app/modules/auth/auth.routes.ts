@@ -16,6 +16,11 @@ router.post(
   validationRequest(AuthValidation.patientEmailVerificationSchema),
   AuthController.verifyEmailAndCreatePatient,
 );
+router.post(
+  "/login",
+  validationRequest(AuthValidation.credentialLoginSchema),
+  AuthController.credentialLogin,
+);
 
 router.post(
   "/forgot-password",

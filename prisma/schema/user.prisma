@@ -11,6 +11,9 @@ model User {
   needPasswordChange Boolean   @default(false)
   isDeleted         Boolean? @default(false)
 
+  profilePhotoUrl String? 
+  profilePhotoPublicId String? 
+
   authAccounts AuthAccount[]
 
   patients Patient?

@@ -1,4 +1,4 @@
-import z, { email, number, string } from "zod";
+import z, { email } from "zod";
 
 const registerUserSchema = z.object({
   name: z
@@ -15,7 +15,12 @@ const registerUserSchema = z.object({
 
 const patientEmailVerificationSchema = z.object({
   email: z.email(),
-  otp: z.string().regex(/^\d{6}$/, "OTP must be exactly 6 digits")
+  otp: z.string().regex(/^\d{6}$/, "OTP must be exactly 6 digits"),
+});
+
+const credentialLoginSchema = z.object({
+  email: z.email().min(1, "Email is required"),
+  password: z.string().min(6, "Password must be at least 5 character long"),
 });
 
 const ForgotPasswordValidationSchema = z.object({
@@ -33,6 +38,7 @@ const ResetPasswordValidationSchema = z.object({
 export const AuthValidation = {
   registerUserSchema,
   patientEmailVerificationSchema,
+  credentialLoginSchema,
   ForgotPasswordValidationSchema,
   ResetPasswordValidationSchema,
 };

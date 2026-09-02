@@ -698,7 +698,6 @@ export const PatientScalarFieldEnum = {
   phone: 'phone',
   address: 'address',
   gender: 'gender',
-  profilePhotoUrl: 'profilePhotoUrl',
   age: 'age',
   weight: 'weight',
   height: 'height',
@@ -721,6 +720,8 @@ export const UserScalarFieldEnum = {
   isEmailVerified: 'isEmailVerified',
   needPasswordChange: 'needPasswordChange',
   isDeleted: 'isDeleted',
+  profilePhotoUrl: 'profilePhotoUrl',
+  profilePhotoPublicId: 'profilePhotoPublicId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

@@ -33,6 +33,8 @@ export type UserMinAggregateOutputType = {
   isEmailVerified: boolean | null
   needPasswordChange: boolean | null
   isDeleted: boolean | null
+  profilePhotoUrl: string | null
+  profilePhotoPublicId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -46,6 +48,8 @@ export type UserMaxAggregateOutputType = {
   isEmailVerified: boolean | null
   needPasswordChange: boolean | null
   isDeleted: boolean | null
+  profilePhotoUrl: string | null
+  profilePhotoPublicId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -59,6 +63,8 @@ export type UserCountAggregateOutputType = {
   isEmailVerified: number
   needPasswordChange: number
   isDeleted: number
+  profilePhotoUrl: number
+  profilePhotoPublicId: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -74,6 +80,8 @@ export type UserMinAggregateInputType = {
   isEmailVerified?: true
   needPasswordChange?: true
   isDeleted?: true
+  profilePhotoUrl?: true
+  profilePhotoPublicId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -87,6 +95,8 @@ export type UserMaxAggregateInputType = {
   isEmailVerified?: true
   needPasswordChange?: true
   isDeleted?: true
+  profilePhotoUrl?: true
+  profilePhotoPublicId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -100,6 +110,8 @@ export type UserCountAggregateInputType = {
   isEmailVerified?: true
   needPasswordChange?: true
   isDeleted?: true
+  profilePhotoUrl?: true
+  profilePhotoPublicId?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -186,6 +198,8 @@ export type UserGroupByOutputType = {
   isEmailVerified: boolean
   needPasswordChange: boolean
   isDeleted: boolean | null
+  profilePhotoUrl: string | null
+  profilePhotoPublicId: string | null
   createdAt: Date
   updatedAt: Date
   _count: UserCountAggregateOutputType | null
@@ -220,6 +234,8 @@ export type UserWhereInput = {
   isEmailVerified?: Prisma.BoolFilter<"User"> | boolean
   needPasswordChange?: Prisma.BoolFilter<"User"> | boolean
   isDeleted?: Prisma.BoolNullableFilter<"User"> | boolean | null
+  profilePhotoUrl?: Prisma.StringNullableFilter<"User"> | string | null
+  profilePhotoPublicId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   authAccounts?: Prisma.AuthAccountListRelationFilter
@@ -235,6 +251,8 @@ export type UserOrderByWithRelationInput = {
   isEmailVerified?: Prisma.SortOrder
   needPasswordChange?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrderInput | Prisma.SortOrder
+  profilePhotoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  profilePhotoPublicId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   authAccounts?: Prisma.AuthAccountOrderByRelationAggregateInput
@@ -253,6 +271,8 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   isEmailVerified?: Prisma.BoolFilter<"User"> | boolean
   needPasswordChange?: Prisma.BoolFilter<"User"> | boolean
   isDeleted?: Prisma.BoolNullableFilter<"User"> | boolean | null
+  profilePhotoUrl?: Prisma.StringNullableFilter<"User"> | string | null
+  profilePhotoPublicId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   authAccounts?: Prisma.AuthAccountListRelationFilter
@@ -268,6 +288,8 @@ export type UserOrderByWithAggregationInput = {
   isEmailVerified?: Prisma.SortOrder
   needPasswordChange?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrderInput | Prisma.SortOrder
+  profilePhotoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  profilePhotoPublicId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
@@ -287,6 +309,8 @@ export type UserScalarWhereWithAggregatesInput = {
   isEmailVerified?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   needPasswordChange?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   isDeleted?: Prisma.BoolNullableWithAggregatesFilter<"User"> | boolean | null
+  profilePhotoUrl?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  profilePhotoPublicId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
@@ -300,6 +324,8 @@ export type UserCreateInput = {
   isEmailVerified?: boolean
   needPasswordChange?: boolean
   isDeleted?: boolean | null
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   authAccounts?: Prisma.AuthAccountCreateNestedManyWithoutUserInput
@@ -315,6 +341,8 @@ export type UserUncheckedCreateInput = {
   isEmailVerified?: boolean
   needPasswordChange?: boolean
   isDeleted?: boolean | null
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   authAccounts?: Prisma.AuthAccountUncheckedCreateNestedManyWithoutUserInput
@@ -330,6 +358,8 @@ export type UserUpdateInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   needPasswordChange?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isDeleted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authAccounts?: Prisma.AuthAccountUpdateManyWithoutUserNestedInput
@@ -345,6 +375,8 @@ export type UserUncheckedUpdateInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   needPasswordChange?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isDeleted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authAccounts?: Prisma.AuthAccountUncheckedUpdateManyWithoutUserNestedInput
@@ -360,6 +392,8 @@ export type UserCreateManyInput = {
   isEmailVerified?: boolean
   needPasswordChange?: boolean
   isDeleted?: boolean | null
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -373,6 +407,8 @@ export type UserUpdateManyMutationInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   needPasswordChange?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isDeleted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -386,6 +422,8 @@ export type UserUncheckedUpdateManyInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   needPasswordChange?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isDeleted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -404,6 +442,8 @@ export type UserCountOrderByAggregateInput = {
   isEmailVerified?: Prisma.SortOrder
   needPasswordChange?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
+  profilePhotoUrl?: Prisma.SortOrder
+  profilePhotoPublicId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -417,6 +457,8 @@ export type UserMaxOrderByAggregateInput = {
   isEmailVerified?: Prisma.SortOrder
   needPasswordChange?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
+  profilePhotoUrl?: Prisma.SortOrder
+  profilePhotoPublicId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -430,6 +472,8 @@ export type UserMinOrderByAggregateInput = {
   isEmailVerified?: Prisma.SortOrder
   needPasswordChange?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
+  profilePhotoUrl?: Prisma.SortOrder
+  profilePhotoPublicId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -487,6 +531,8 @@ export type UserCreateWithoutAuthAccountsInput = {
   isEmailVerified?: boolean
   needPasswordChange?: boolean
   isDeleted?: boolean | null
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   patients?: Prisma.PatientCreateNestedOneWithoutUserInput
@@ -501,6 +547,8 @@ export type UserUncheckedCreateWithoutAuthAccountsInput = {
   isEmailVerified?: boolean
   needPasswordChange?: boolean
   isDeleted?: boolean | null
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   patients?: Prisma.PatientUncheckedCreateNestedOneWithoutUserInput
@@ -531,6 +579,8 @@ export type UserUpdateWithoutAuthAccountsInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   needPasswordChange?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isDeleted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patients?: Prisma.PatientUpdateOneWithoutUserNestedInput
@@ -545,6 +595,8 @@ export type UserUncheckedUpdateWithoutAuthAccountsInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   needPasswordChange?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isDeleted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   patients?: Prisma.PatientUncheckedUpdateOneWithoutUserNestedInput
@@ -559,6 +611,8 @@ export type UserCreateWithoutPatientsInput = {
   isEmailVerified?: boolean
   needPasswordChange?: boolean
   isDeleted?: boolean | null
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   authAccounts?: Prisma.AuthAccountCreateNestedManyWithoutUserInput
@@ -573,6 +627,8 @@ export type UserUncheckedCreateWithoutPatientsInput = {
   isEmailVerified?: boolean
   needPasswordChange?: boolean
   isDeleted?: boolean | null
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   authAccounts?: Prisma.AuthAccountUncheckedCreateNestedManyWithoutUserInput
@@ -603,6 +659,8 @@ export type UserUpdateWithoutPatientsInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   needPasswordChange?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isDeleted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authAccounts?: Prisma.AuthAccountUpdateManyWithoutUserNestedInput
@@ -617,6 +675,8 @@ export type UserUncheckedUpdateWithoutPatientsInput = {
   isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
   needPasswordChange?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isDeleted?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   authAccounts?: Prisma.AuthAccountUncheckedUpdateManyWithoutUserNestedInput
@@ -662,6 +722,8 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   isEmailVerified?: boolean
   needPasswordChange?: boolean
   isDeleted?: boolean
+  profilePhotoUrl?: boolean
+  profilePhotoPublicId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   authAccounts?: boolean | Prisma.User$authAccountsArgs<ExtArgs>
@@ -678,6 +740,8 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   isEmailVerified?: boolean
   needPasswordChange?: boolean
   isDeleted?: boolean
+  profilePhotoUrl?: boolean
+  profilePhotoPublicId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -691,6 +755,8 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   isEmailVerified?: boolean
   needPasswordChange?: boolean
   isDeleted?: boolean
+  profilePhotoUrl?: boolean
+  profilePhotoPublicId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -704,11 +770,13 @@ export type UserSelectScalar = {
   isEmailVerified?: boolean
   needPasswordChange?: boolean
   isDeleted?: boolean
+  profilePhotoUrl?: boolean
+  profilePhotoPublicId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "role" | "status" | "isEmailVerified" | "needPasswordChange" | "isDeleted" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "role" | "status" | "isEmailVerified" | "needPasswordChange" | "isDeleted" | "profilePhotoUrl" | "profilePhotoPublicId" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   authAccounts?: boolean | Prisma.User$authAccountsArgs<ExtArgs>
   patients?: boolean | Prisma.User$patientsArgs<ExtArgs>
@@ -732,6 +800,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     isEmailVerified: boolean
     needPasswordChange: boolean
     isDeleted: boolean | null
+    profilePhotoUrl: string | null
+    profilePhotoPublicId: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["user"]>
@@ -1167,6 +1237,8 @@ export interface UserFieldRefs {
   readonly isEmailVerified: Prisma.FieldRef<"User", 'Boolean'>
   readonly needPasswordChange: Prisma.FieldRef<"User", 'Boolean'>
   readonly isDeleted: Prisma.FieldRef<"User", 'Boolean'>
+  readonly profilePhotoUrl: Prisma.FieldRef<"User", 'String'>
+  readonly profilePhotoPublicId: Prisma.FieldRef<"User", 'String'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
 }

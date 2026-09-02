@@ -1,4 +1,4 @@
-import jwt, { type JwtPayload, type SignOptions } from "jsonwebtoken";
+import jwt, {  type SignOptions } from "jsonwebtoken";
 import envConfig from "../config/envConfig";
 import type { IJwtPayload } from "../modules/auth/auth.interface";
 
@@ -17,5 +17,5 @@ export const generateRefreshToken = (payload: IJwtPayload) => {
   return token;
 };
 
-export const verifyJwtToken = (token: string, secret: string): JwtPayload =>
-  jwt.verify(token, secret) as JwtPayload;
+export const verifyJwtToken = (token: string, secret: string): IJwtPayload =>
+  jwt.verify(token, secret) as IJwtPayload;

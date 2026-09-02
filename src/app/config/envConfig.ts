@@ -4,7 +4,6 @@ import path from "path";
 
 dotenv.config({ path: path.join((process.cwd(), ".env")) });
 
-console.log("path:", process.cwd(), ".env");
 
 const envConfig = {
   PORT: Number(process.env.PORT || 5000),
@@ -32,5 +31,8 @@ const envConfig = {
   SMTP_USERNAME: process.env.SMTP_USERNAME,
   SMTP_PASS: process.env.SMTP_PASS,
   SMTP_SENDER: process.env.SMTP_SENDER,
+  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
+  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
+  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET
 };
 export default envConfig;

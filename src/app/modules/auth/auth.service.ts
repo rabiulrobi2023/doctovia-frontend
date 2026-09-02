@@ -17,6 +17,7 @@ import envConfig from "../../config/envConfig";
 import ejs from "ejs";
 import path from "path";
 import { generateAccessToken, generateRefreshToken } from "../../utils/jwt";
+import bcrypt from "bcryptjs";
 
 const registerPatient = async (payload: IRegisterPatientPayload) => {
   const { name, email, password } = payload;
@@ -215,7 +216,7 @@ const verifyEmailAndCreatePatient = async (
   });
 
   const jwtPayload: IJwtPayload = {
-    sub: createUser.id,
+    id: createUser.id,
     name,
     email,
     role: createUser.role,
@@ -226,6 +227,66 @@ const verifyEmailAndCreatePatient = async (
 
   return {
     user: createUser,
+    accessToken,
+    refreshToken,
+  };
+};
+
+const credentialLogin = async (email: string, password: string) => {
+  if (!email || !password) {
+    throw new AppError(StatusCodes.BAD_REQUEST, "Email or password missing");
+  }
+  const user = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+
+  if (!user) {
+    throw new AppError(StatusCodes.NOT_FOUND, "User not found");
+  }
+
+  if (user.status === UserStatus.SUSPENDED) {
+    throw new AppError(
+      StatusCodes.FORBIDDEN,
+      "Your account has been suspended",
+    );
+  }
+
+  if (user.status === UserStatus.BLOCKED) {
+    throw new AppError(StatusCodes.FORBIDDEN, "Your account has been blocked");
+  }
+
+  const authAccount = await prisma.authAccount.findUnique({
+    where: {
+      provider_providerAccountId: {
+        provider: AuthProvider.CREDENTIAL,
+        providerAccountId: email,
+      },
+    },
+    select: {
+      password: true,
+    },
+  });
+
+  const isPasswordMatched = await bcrypt.compare(
+    password,
+    authAccount?.password as string,
+  );
+
+  if (!isPasswordMatched) {
+    throw new AppError(StatusCodes.UNAUTHORIZED, "Invalid password");
+  }
+  const jwtTokenPayload: IJwtPayload = {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+  };
+
+  const accessToken = generateAccessToken(jwtTokenPayload);
+  const refreshToken = generateRefreshToken(jwtTokenPayload);
+  return {
     accessToken,
     refreshToken,
   };
@@ -391,6 +452,7 @@ const resetPassword = async (payload: IResetPasswordPayload) => {
 export const AuthService = {
   registerPatient,
   verifyEmailAndCreatePatient,
+  credentialLogin,
   forgotPassword,
   resetPassword,
 };

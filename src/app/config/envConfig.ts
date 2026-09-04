@@ -4,12 +4,12 @@ import path from "path";
 
 dotenv.config({ path: path.join((process.cwd(), ".env")) });
 
-
 const envConfig = {
   PORT: Number(process.env.PORT || 5000),
   SERVER_NAME: process.env.SERVER_NAME,
   NODE_ENV: process.env.NODE_ENV,
   DATABASE_URL: process.env.DATABASE_URL,
+  BACKEND_URL: process.env.BACKEND_URL,
   FRONTEND_URL: process.env.FRONTEND_URL,
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
   JWT_ACCESS_TOKEN_SECRET: process.env.JWT_ACCESS_TOKEN_SECRET as string,
@@ -33,6 +33,11 @@ const envConfig = {
   SMTP_SENDER: process.env.SMTP_SENDER,
   CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
   CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
-  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET
+  CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
+  BKASH_SANDBOX_USERNAME: process.env.BKASH_SANDBOX_USERNAME,
+  BKASH_SANDBOX_PASSWORD: process.env.BKASH_SANDBOX_PASSWORD,
+  BKASH_SANDBOX_APP_KEY: process.env.BKASH_SANDBOX_APP_KEY,
+  BKASH_SANDBOX_APP_SECRET: process.env.BKASH_SANDBOX_APP_SECRET,
+  BKASH_SANDBOX_BASE_URL: process.env.BKASH_SANDBOX_BASE_URL,
 };
 export default envConfig;

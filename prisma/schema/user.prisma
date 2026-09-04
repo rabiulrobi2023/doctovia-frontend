@@ -9,10 +9,10 @@ model User {
 
   isEmailVerified    Boolean @default(false)
   needPasswordChange Boolean   @default(false)
-  isDeleted         Boolean? @default(false)
+  isDeleted         Boolean @default(false)
 
   profilePhotoUrl String? 
-  profilePhotoPublicId String? 
+  profilePhotoPublicId String?
 
   authAccounts AuthAccount[]
 
